@@ -1,0 +1,632 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Voyage | AdFab!</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Boxicons CSS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  min-height: 100%;
+  background: #e3f2fd;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+nav .logo {
+  display: flex;
+  align-items: center;
+  margin: 0 24px;
+}
+.logo .menu-icon {
+  color: #333;
+  font-size: 24px;
+  margin-right: 14px;
+  cursor: pointer;
+}
+.logo .logo-name {
+  color: #333;
+  font-size: 22px;
+  font-weight: 500;
+}
+nav .sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 260px;
+  padding: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 5px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+nav.open .sidebar {
+  left: 0;
+}
+.sidebar .sidebar-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 16px;
+}
+.sidebar-content .list {
+  list-style: none;
+}
+.list .nav-link {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  padding: 14px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.lists .nav-link:hover {
+  background-color: #4070f4;
+}
+.nav-link .icon {
+  margin-right: 14px;
+  font-size: 20px;
+  color: #707070;
+}
+.nav-link .link {
+  font-size: 16px;
+  color: #707070;
+  font-weight: 400;
+}
+.lists .nav-link:hover .icon,
+.lists .nav-link:hover .link {
+  color: #fff;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 1000vh;
+  width: 200%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  background: rgba(0, 0, 0, 0.3);
+}
+nav.open ~ .overlay {
+  opacity: 1;
+  left: 260px;
+  pointer-events: auto;
+}
+.smallfont{
+
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+}
+.logo-name2{
+
+  color: #333;
+  font-size: 26px;
+  font-weight: 500;
+  text-align: center;
+}
+.background2{
+  background-color:#F5F3F3;
+}
+.terms-conditions{
+    font-size: 16;
+    color: #7a7f8a;
+}
+marquee{
+    background-color: green;
+    font-size: 25px;
+}
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* Add some shadows to create a card effect */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Some left and right padding inside the container */
+.container {
+  padding: 0 16px;
+}
+
+/* Clear floats */
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <i class="bx bx-menu menu-icon"></i>
+        <span class="smallfont">Bring Your Company To Life</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <center><span class="logo-name2"> Voyage | AdFab!</span></center>
+      </div>
+      <div class="sidebar">
+        <div class="logo">
+          <i class="bx bx-menu menu-icon"></i>
+          <span class="logo-name"> Adfab</span>
+        </div>
+        <div class="sidebar-content">
+          <ul class="lists">
+            <li class="list">
+              <a href="#Home" class="nav-link">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="link">Home</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#Apply" class="nav-link">
+                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                <span class="link">Apply</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#Offers"  class="nav-link">
+                <i class="bx bx-bell icon"></i>
+                <span class="link">How it works</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#Contact"  class="nav-link">
+                <i class="bx bx-message-rounded icon"></i>
+                <span class="link">Contact</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#Us" class="nav-link">
+                <i class="bx bx-pie-chart-alt-2 icon"></i>
+                <span class="link">About Us</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#Consultants" class="nav-link">
+                <i class="bx bx-heart icon"></i>
+                <span class="link">Consultants</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#Gallary" class="nav-link">
+                <i class="bx bx-folder-open icon"></i>
+                <span class="link">Gallery</span>
+              </a>
+            </li>
+          </ul>
+          <div class="bottom-cotent">
+            <li class="list">
+              <a href="#Settings" class="nav-link">
+                <i class="bx bx-cog icon"></i>
+                <span class="link">Settings</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#Logout" class="nav-link">
+                <i class="bx bx-log-out icon"></i>
+                <span class="link">Logout</span>
+              </a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<center>
+<div>
+    <h1>&nbsp;&nbsp;The Stuff for you!</h1>
+    <br>
+
+<hr color="red" width="1300">  
+</center>
+<h1>Home</h1>
+<p>Adfab is an advert company that boosts your company in to orbit.</p><a name="Home"></a>
+
+<br>
+<h2>Who are we?</h2>
+ <p>What we do here at Voyage is create anything in our advert capability. As you being the client we are accustomed to fit a sensible price to your finance budget. We have as you will se on our gallary page accomplished.   This is all done in an eco-friendly way and we pride our selves here, In Adfab having great work ethic with world class staff. We will strive our best to help you bring your company to life. We have a team working on ideas that not only suit you but will have great reflection on your product, whether it is juice to an app we've got you covered.</p>
+</div>
+</center>
+<br>
+<br>
+<br>
+<center><h2>Why use our company?</h2>
+<br>
+<bR>
+<p>Many people may ask why they want to use our company and they are right, why? Well our company have nothing but the highest standards and we attract the audience and our adverts eye catch the eye of many people. Our most famous client/company is AquaViva who have taken the UK by surprise with their fresh water. We have worked with many clients and 92.7% of our clients buisnesseses have had a boost in sales.  </p>
+</center>
+
+<center>
+<svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="788" height="400"><desc>Created with Highcharts 4.2.7</desc><defs><clipPath id="highcharts-4"><rect x="1" y="1" width="766" height="306"></rect></clipPath></defs><rect x="10" y="36" width="768" height="308" fill="#ffffff"></rect><rect x="10" y="36" width="768" height="308" stroke="#026FC1" stroke-width="2" fill="none"></rect><g class="highcharts-series-group"><path fill="#50B432" fill-opacity="0.25" d="M 0 0"></path><g class="highcharts-series highcharts-series-0 highcharts-tracker" transform="translate(10,36) scale(1 1)" style="cursor:pointer;"><path fill="#50B432" d="M 383.9761702351677 37.0000024267423 A 117 117 0 1 1 332.01729543473124 49.18207011164557 L 384 154 A 0 0 0 1 0 384 154 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#ED561B" d="M 332.1221393385001 49.13013982470464 A 117 117 0 0 1 383.83748934724565 37.000112862072626 L 384 154 A 0 0 0 0 0 384 154 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path></g><g class="highcharts-markers highcharts-series-0" transform="translate(10,36) scale(1 1)"></g></g><g class="highcharts-button" style="cursor:default;" stroke-linecap="round" transform="translate(754,10)"><title>Chart context menu</title><rect x="0.5" y="0.5" width="24" height="22" fill="#FFF" stroke="#FFF" stroke-width="1" rx="2" ry="2"></rect><path fill="#E0E0E0" d="M 6 6.5 L 20 6.5 M 6 11.5 L 20 11.5 M 6 16.5 L 20 16.5" stroke="#666" stroke-width="3"></path><text x="0" style="color:black;fill:black;" y="12"></text></g><text x="394" text-anchor="middle" class="highcharts-title" style="color:#000000;font-size:10px;font-family:'Arial', sans-serif;fill:#000000;width:724px;" y="17"><tspan>Amount of People who have had a loss or gain in their business after using Adfab</tspan></text><g class="highcharts-data-labels highcharts-series-0 highcharts-tracker" transform="translate(10,36) scale(1 1)" opacity="1" style="cursor:pointer;" visibility="visible"><path fill="none" d="M 422.4944658087611 297.13322731003353 C 417.4944658087611 297.13322731003353 415.6716377375362 289.34366391901125 413.16524913960166 278.6330142563557 L 410.65886054166714 267.92236459370014" stroke="#50B432" stroke-width="1"></path><path fill="none" d="M 345.50553419123855 10.86677268996651 C 350.50553419123855 10.86677268996651 352.32836226246377 18.656336080988737 354.8347508603983 29.366985743644307 L 357.3411394583328 40.077635406299876" stroke="#ED561B" stroke-width="1"></path><g style="cursor:pointer;" transform="translate(427,287)"><text x="5" style="font-size:10px;font-weight:bold;font-family:'Arial', sans-serif;color:#000;text-shadow:none;fill:#000;text-rendering:geometricPrecision;" y="15"><tspan>Increase of Business: 114</tspan></text></g><g style="cursor:pointer;" transform="translate(236,1)"><text x="5" style="font-size:10px;font-weight:bold;font-family:'Arial', sans-serif;color:#000;text-shadow:none;fill:#000;text-rendering:geometricPrecision;" y="15"><tspan>Loss of Buisness: 9</tspan></text></g></g><g class="highcharts-legend" transform="translate(248,356)"><g><g><g class="highcharts-legend-item" transform="translate(8,3)"><text x="21" style="color:#333;font-size:9pt;font-weight:normal;cursor:pointer;font-family:&quot;Lucida Grande&quot;,&quot;Lucida Sans Unicode&quot;,Arial,Helvetica,sans-serif;text-transform:none;fill:#333;" text-anchor="start" y="15"><tspan>Increase of Business</tspan></text><rect x="0" y="4" width="16" height="12" fill="#50B432"></rect></g><g class="highcharts-legend-item" transform="translate(166.765625,3)"><text x="21" y="15" style="color:#333;font-size:9pt;font-weight:normal;cursor:pointer;font-family:&quot;Lucida Grande&quot;,&quot;Lucida Sans Unicode&quot;,Arial,Helvetica,sans-serif;text-transform:none;fill:#333;" text-anchor="start"><tspan>Loss of Business</tspan></text><rect x="0" y="4" width="16" height="12" fill="#ED561B"></rect></g></g></g></g><g class="highcharts-tooltip" display="block" style="cursor:default;padding:0;pointer-events:none;white-space:nowrap;" transform="translate(410,-9999)" opacity="0" visibility="visible"><path fill="none" d="M 3.5 0.5 L 111.5 0.5 C 114.5 0.5 114.5 0.5 114.5 3.5 L 114.5 43.5 C 114.5 46.5 114.5 46.5 111.5 46.5 L 3.5 46.5 C 0.5 46.5 0.5 46.5 0.5 43.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"></path><path fill="none" d="M 3.5 0.5 L 111.5 0.5 C 114.5 0.5 114.5 0.5 114.5 3.5 L 114.5 43.5 C 114.5 46.5 114.5 46.5 111.5 46.5 L 3.5 46.5 C 0.5 46.5 0.5 46.5 0.5 43.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"></path><path fill="none" d="M 3.5 0.5 L 111.5 0.5 C 114.5 0.5 114.5 0.5 114.5 3.5 L 114.5 43.5 C 114.5 46.5 114.5 46.5 111.5 46.5 L 3.5 46.5 C 0.5 46.5 0.5 46.5 0.5 43.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"></path><path fill="rgba(249, 249, 249, .85)" d="M 3.5 0.5 L 111.5 0.5 C 114.5 0.5 114.5 0.5 114.5 3.5 L 114.5 43.5 C 114.5 46.5 114.5 46.5 111.5 46.5 L 3.5 46.5 C 0.5 46.5 0.5 46.5 0.5 43.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#50B432" stroke-width="1"></path></g><text x="778" text-anchor="end" style="cursor:pointer;color:#909090;font-size:9px;fill:#909090;" y="395">meta-chart.com</text></svg></center>
+
+<br>
+<br>
+<a name="Apply"></a>
+<h1>Application service</h1>
+<br>
+<br>
+
+            <div class="background2">
+                <div class="card-header">Apply for an advert</div>
+                <div class="card-body">
+                    <form method="POST" action="/sample_data/add_sample_data">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Name</label>
+                                    <input type="text" name="first_name" id="first_name" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Company Name</label>
+                                    <input type="text" name="last_name" id="last_name" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                               <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Email id</label>
+                                    <input type="text" name="email" id="email" class="form-control" />
+                                </div>
+                            </div>
+                                 <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Phone Number</label>
+                                    <input type="text" name="Phone" id="Phone" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Age</label>
+                                    <input type="number" name="age" id="age" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Gender</label>
+                                    <select name="gender" class="form-control">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="button" name="submit_button" class="btn btn-primary" onclick="alert ('Thank you for Submitting the form, we will get in touch with you soon.')" value="Add"  />
+                        </div>
+                    </form>
+                </div>
+            </div>
+          </form>
+    </div>
+<br>
+<br>
+<h2>Apply for our premium services</h2>
+<p>Why do you have to apply you might ask, well our advert buisness has grown so much that we have so many requests it has overwhelmed us and we need to complete a few first then to the next batch. We know you must be sick of waiting but our adverts would smash the population your product has an ausomatic win.</p>
+<br>
+<Br>
+
+
+
+<br>
+<h1>How it works</h1>
+<br>
+<br>
+<p>The way it works is that we give the best service to our clients as they say the customer is always right. Once we recieve your ideas we can call you to our building which is located in Bath, Sommerset and we ask you a few questions about how we want this company to work or how the client wants the audience to feel, whether it is a trendy or a posh idea we always have something for our customers. When you arrive you will have to wait for about 25 minutes but you will be provided with refreshments and can relax in the lounge area and lay back or share you ideas with another buisnessman/woman, we never dissapoint our customers. </p>
+<br>
+<br>
+
+<a name="Offers"></a>
+<h3>Terms and Conditions</h3>
+<br>
+<br>
+<br>
+<ul>
+  <li>User must give 40% of profits to AdFab</li>
+  <li>The Advert must have credit to adfab and must have a watermark on billboards.</li>
+  <li>If the user forcomes a loss then the user must pay £100 for service and advice.</li>
+  <li>If the user tries to plagarise work from our company then the consultant has all rights to withdraw your advert/company from Adfab and must be payed £15 for everyday she/he/other has helped you.</li>
+  <li>When the user finishes his program here at adfab he must help promote our company by giving credit to his/her/other companys form of expression/website.</li>
+  <li>If company gets taken down due to certan reasons consultants take 20% of the payed fee and user must retract adfabs name from the company.</li>
+  <li>Material used by the company shall be free only for a demo but if you want to make your own material from the Company then you must buy our material for following prices.</li>
+  <li>Our company has every right to take down any unsupervised and illigal material/activity copyright etc.</li>
+  <li>If the user violates any legal issues then adfab as a company will not take any blame.</li>
+  <li>If the user uses any copyright material then adfab can report this to the police where you can be prosecuted up to £10000, consultants have every right to file complains</li>
+</ul>
+
+<br>
+<br>
+<br>
+<h1>Contact</h1>
+<a id="Contact"></a>
+<br>
+<h2>Our Contacts</h2>
+<p>We have worked with many wide global companys these include Marketing Mania and many others famous companys. But we also have invested in smaller companys and have succesfully  grown them.
+    <br>
+    Our tallys show that 91.5% of companys that we work with have succeded not only financially but also turns very popular and some small buisnesseses even become the talk of the town.
+</p>
+<BR>
+    <BR>
+        <p>If the user has a problem or needs to call our consultants then they can either go here or to our reception mobile or consultants page.</p>
+<ul>
+    <li>Receptions mobile - 0779875654</li>
+    <li>CEO/ Co founders (Aarush Raghavendra, Oliver Barlow, Jacob Dako, Theo Francis) - 09187342397</li>
+    <li>Assistant (Alfred Beesley) and Head of Magazine and Newspaper- 07239478472</li>
+    <li>Head of Adverting - 02384721323</li>
+    <li>Public Consultants - 0782340871</li>
+    <li>Head of Marketing - 0712389273</li>
+    <li>Billboard Manager - 0827347452</li>
+    <li>Building Services - 0192722343</li>
+    <li>Advertising Services - 0092742347</li>
+    <li>Maintanance - 099823455</li>
+    <li>Admin - 129887465</li>
+</ul>
+
+<br>
+<br>
+<br>
+<h1>About us</h1>
+
+<br>
+<br>
+<h2>What do we do?</h2>
+<br>
+<p>We are a company that helps grow small buisnesses to be the talk of the town. As the co founders of
+  adfab we strive to only provide nothing less then the best. Withh this idea we have helped over 150 buisnesses strive. <br><br>
+  If you get accepted from our waiting list then you must agree to the terms and conditions. Our consultants are one of the best you can find and if there are any queries
+  wiyh your ads then you can be sure to ask him.
+</p>
+<marquee>Limited offer : 50% offer only for 2 weeks!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Get a 50% discount only for 2 weeks! </marquee>
+<br>
+
+<br>
+<p>If you want to know more about our staff and consultants please scroll or load our consultants page below or you can find it on the sidebar.</p>
+<a id="Us"></a>
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+  <div class="column">
+    
+      <img src="https://i.ibb.co/qyKrQVw/Aarush-Raghavendra.jpg" alt="Jane" style="width:100%">
+      <div class="container">
+        <h2>Aarush Raghavendra</h2>
+        <p class="title">Co Founder &amp; Director of Computing</p>
+        <p>Admin and also founder of many companys (including this one) website.
+        </p>
+        <br>
+        <p>0712389273</p>
+        
+        <a id="Contact"><p><button class="button">Contact</button></p></a>
+      </div>
+    
+  </div>
+
+  <div class="column">
+    
+      <img src="https://i.ibb.co/mRg3wfJ/Jacob-Dako.jpg" alt="Mike" style="width:100%">
+      <div class="container">
+        <h2>Jacob Dako</h2>
+        <p class="title">Co Founder and Director of Marketing & Statisticss</p>
+        <p>Our Head of Marketing. Talk to him about anything regarding 
+          his profession.
+        </p>
+        <br>
+        <p>0827347452/0192722343</p>
+        <a id="Contact"></a><p><button class="button">Contact</button></p></a>
+      </div>
+    
+  </div>
+
+  <div class="column">
+    
+      <img src="https://i.ibb.co/1m3MNJ8/Oliver-Barlow.jpg" alt="John" style="width:100%">
+      <div class="container">
+        <h2>Oliver Barlow</h2>
+        <p class="title">Co Founder & Manager</p>
+        <p>If you have any quierys regarding how your ad is going ask him.</p>
+        <p>129887465</p>
+        <br>
+        <a id="Contact"> <p><button class="button">Contact</button></p></a>
+      </div>
+    </div>
+  <br>
+  <div class="column">
+    
+    <img src="https://i.ibb.co/WtFZJdG/Screenshot-2023-05-11-095147.png" alt="Mike" style="width:100%">
+        <div class="container">
+    <h2>Alfred Beesley</h2>
+    <p class="title">Co Owner and Director of Head of Magazine and Newspaper</p>
+    <p>Co Founder and Director of Head of Magazine and Newspaper, ask him any questions regarding his profession
+    </p>
+    <p>0827347452/0192722343</p>
+    <a id="Contact"></a><p><button class="button">Contact</button></p></a>
+  </div> 
+</div>
+<div class="column">
+
+
+  <img src="https://i.ibb.co/qFGTpjK/Theo-Francis.jpg" alt="Mike" style="width:100%">
+ <div class="container">
+      <h2>Theo Francis</h2>
+      <p class="title">Co Owner and Director of Admissions/ Modeling</p>
+      <br>
+      <p>Co Founder and Director of Modeling/Admissions, ask him any questions regarding his profession
+      </p>
+      <br>
+      <p>0827347452/0192722343</p>
+      <a id="Contact"></a><p><button class="button">Contact</button></p></a>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<h1>Gallery</h1>
+<br>
+<br>
+<p>Over thee years we have started this company we have grown our business along with others tremendously but one of our businesses we have helped has grown so much we have decided that both of our businesses 
+  are going to represent eachother. Aquaviva is luxury beverage rich in minerals and high in calcium. Our research has shown that a lot of old people die due to lack of hydration. So we have created water not only refreshing but also helps old people strengthen their bones. 
+</p>
+
+<br>
+<br>
+
+<div class="gallery">
+  <a target="_blank">
+    <img src="https://i.ibb.co/SvR8zkf/Whats-App-Image-2023-05-11-at-20-25-48-2.jpg" alt="Cinque Terre" width="600" height="400">
+  </a>
+  <div class="desc">Aqua Viva Bottle Background</div>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="gallery">
+  <a target="_blank">
+    <img src="https://i.ibb.co/4SJ9194/Whats-App-Image-2023-05-11-at-20-25-48-1.jpg" alt="Cinque Terre" width="600" height="400">
+  </a>
+  <div class="desc">Aqua Viva Bottle Background</div>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="gallery">
+  <a target="_blank">
+    <img src="https://i.ibb.co/RhjKsGh/Whats-App-Image-2023-05-11-at-20-25-48.jpg" alt="Cinque Terre" width="600" height="400">
+  </a>
+  <div class="desc">Aqua Viva Bottle Background</div>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<div class="gallery">
+  <a target="_blank">
+    <img src="https://i.ibb.co/SN4602h/Whats-App-Image-2023-05-11-at-20-25-49-1.jpg" alt="Cinque Terre" width="600" height="400">
+  </a>
+  <div class="desc">Aqua Viva Bottle Background</div>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="gallery">
+  <a target="_blank">
+    <img src="https://i.ibb.co/HFvDnJC/Whats-App-Image-2023-05-11-at-20-25-49.jpg" alt="Cinque Terre" width="600" height="400">
+  </a>
+  <div class="desc">Aqua Viva Bottle Background</div>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="gallery">
+  <a target="_blank">
+    <img src="https://i.ibb.co/P68cr0g/Whats-App-Image-2023-05-11-at-20-25-50.jpg" alt="Cinque Terre" width="600" height="400">
+  </a>
+  <div class="desc">Aqua Viva Bottle Background</div>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a name="Consultants"></a>
+    <section class="overlay"></section>
+    <script src="script.js"></script>
+
+<script>
+  
+</script>
+    <script>
+      const navBar = document.querySelector("nav"),
+       menuBtns = document.querySelectorAll(".menu-icon"),
+       overlay = document.querySelector(".overlay");
+     menuBtns.forEach((menuBtn) => {
+       menuBtn.addEventListener("click", () => {
+         navBar.classList.toggle("open");
+       });
+     });
+     overlay.addEventListener("click", () => {
+       navBar.classList.remove("open");
+     });
+    </script>
+  </body>
+</html>
+
+
